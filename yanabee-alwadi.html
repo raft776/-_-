@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ينابيع الوادي</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: wholesale water supplier for shops — navy hero band, catalog + sticky order sheet, fleet, coverage */
+:root{
+  --bg:#F5F8FA; --surface:#FFFFFF; --ink:#0B2D4A; --text:#22323F; --muted:#4F5F6C;
+  --line:#DCE6EC; --tint:#E6F2F8; --accent:#0A6E9C; --accent-ink:#FFFFFF;
+  --hero:#0B2D4A; --hero-text:#FFFFFF; --hero-soft:#C9DCE8; --hero-line:#2C5577;
+  --ok:#17784A; --warn:#9A5B00; --wa:#167A47; --box:#E9DCC4; --box-line:#8A6B3F; --wheel:#1F2A35;
+  --display:"Readex Pro","IBM Plex Sans Arabic",Tahoma,sans-serif;
+  --body:"IBM Plex Sans Arabic",Tahoma,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#09161F; --surface:#0F212D; --ink:#E4EEF4; --text:#CFDCE4; --muted:#9AAEBB;
+  --line:#1F3747; --tint:#132F40; --accent:#53B5E2; --accent-ink:#04202E;
+  --hero:#0C2638; --hero-text:#F1F7FA; --hero-soft:#A9C3D3; --hero-line:#2A4C63;
+  --ok:#4CC38A; --warn:#E3A64A; --wa:#3BBF7A; --box:#5A4A33; --box-line:#B8996A; --wheel:#02080C;
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#09161F; --surface:#0F212D; --ink:#E4EEF4; --text:#CFDCE4; --muted:#9AAEBB;
+  --line:#1F3747; --tint:#132F40; --accent:#53B5E2; --accent-ink:#04202E;
+  --hero:#0C2638; --hero-text:#F1F7FA; --hero-soft:#A9C3D3; --hero-line:#2A4C63;
+  --ok:#4CC38A; --warn:#E3A64A; --wa:#3BBF7A; --box:#5A4A33; --box-line:#B8996A; --wheel:#02080C;
+  color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--body);font-size:16px;line-height:1.75;direction:rtl}
+h1,h2,h3{font-family:var(--display);color:var(--ink);margin:0;text-wrap:balance;line-height:1.35}
+p{margin:0}
+.wrap{max-width:1180px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:6px}
+button{font-family:inherit;cursor:pointer}
+
+.demo{background:var(--tint);color:var(--ink);font-size:13px;text-align:center}
+.demo .wrap{padding-block:6px}
+
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--surface);border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--surface)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:8px;text-decoration:none}
+.brand b{font-family:var(--display);font-size:20px;color:var(--ink)}
+.brand small{display:block;font-size:11px;color:var(--muted);line-height:1.2}
+nav.links{display:flex;gap:20px;font-size:14px;flex-wrap:wrap}
+nav.links a{color:var(--text);text-decoration:none}
+nav.links a:hover{color:var(--accent)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 20px;border-radius:10px;border:0;font-weight:600;font-size:15px;text-decoration:none}
+.btn-primary{background:var(--accent);color:var(--accent-ink)}
+.btn-ghost{background:transparent;color:var(--hero-text);border:1px solid var(--hero-soft)}
+.btn-light{background:var(--hero-text);color:var(--hero)}
+@media (max-width:760px){nav.links{display:none}}
+
+.hero{background:var(--hero);color:var(--hero-text)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:40px;align-items:center;padding-block:56px}
+.eyebrow{font-size:13px;letter-spacing:.02em;color:var(--hero-soft);font-weight:600}
+.hero h1{color:var(--hero-text);font-size:clamp(30px,4.4vw,48px);margin-block:10px 14px}
+.hero p.lead{color:var(--hero-soft);max-width:34em}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.hero-facts{display:flex;gap:28px;flex-wrap:wrap;margin-top:30px;padding-top:20px;border-top:1px solid var(--hero-line);font-size:14px;color:var(--hero-soft)}
+.hero-facts b{display:block;color:var(--hero-text);font-family:var(--display);font-size:16px}
+.hero-art{background:var(--hero-line);border-radius:18px;padding:18px;display:flex;align-items:flex-end;justify-content:center;min-height:260px}
+.hero-art svg{width:100%;max-width:420px;height:auto}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr;padding-block:40px}.hero-art{min-height:0}}
+
+section{padding-block:56px}
+.sec-head{display:flex;flex-direction:column;gap:6px;margin-bottom:26px;max-width:640px}
+.sec-head h2{font-size:clamp(24px,3vw,32px)}
+.sec-head p{color:var(--muted)}
+
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;counter-reset:s}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:6px}
+.step .n{width:32px;height:32px;border-radius:50%;background:var(--tint);color:var(--accent);font-family:var(--display);font-weight:700;display:flex;align-items:center;justify-content:center}
+.step h3{font-size:17px}
+.step p{font-size:14px;color:var(--muted)}
+@media (max-width:860px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.steps{grid-template-columns:1fr}}
+
+.shop{display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start}
+.catalog{flex:999 1 560px;min-width:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+.prod{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.prod .pic{background:var(--tint);height:150px;display:flex;align-items:flex-end;justify-content:center;padding-bottom:12px}
+.prod .info{padding:14px 16px 16px;display:flex;flex-direction:column;gap:4px;flex:1}
+.prod h3{font-size:17px}
+.prod .pack{font-size:13px;color:var(--muted)}
+.prod .tag{align-self:flex-start;font-size:12px;background:var(--tint);color:var(--accent);padding:1px 10px;border-radius:20px;font-weight:600}
+.qty{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:auto;padding-top:12px}
+.qty .lbl{font-size:13px;color:var(--muted)}
+.stepper{display:flex;align-items:center;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.stepper button{width:44px;height:44px;border:0;background:var(--surface);color:var(--ink);font-size:20px;font-weight:600}
+.stepper button:hover{background:var(--tint)}
+.stepper input{width:52px;height:44px;border:0;border-inline:1px solid var(--line);text-align:center;font:600 16px var(--body);color:var(--ink);background:var(--surface);font-variant-numeric:tabular-nums;-moz-appearance:textfield}
+.stepper input::-webkit-outer-spin-button,.stepper input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+
+.order{flex:1 1 320px;min-width:0;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px;position:sticky;top:calc(env(safe-area-inset-top,0px) + 84px);display:flex;flex-direction:column;gap:16px}
+.order h3{font-size:20px}
+.lines{display:flex;flex-direction:column;gap:6px;font-size:14px}
+.line{display:flex;justify-content:space-between;gap:12px;border-bottom:1px dashed var(--line);padding-bottom:6px}
+.line span:last-child{font-variant-numeric:tabular-nums;font-weight:600;color:var(--ink)}
+.empty{font-size:14px;color:var(--muted);background:var(--tint);border-radius:10px;padding:12px}
+.total{display:flex;justify-content:space-between;align-items:baseline;font-family:var(--display);color:var(--ink)}
+.total b{font-size:22px;font-variant-numeric:tabular-nums}
+form.f{display:flex;flex-direction:column;gap:12px}
+.field{display:flex;flex-direction:column;gap:4px}
+.field label{font-size:13px;font-weight:600;color:var(--ink)}
+.field input,.field select,.field textarea{min-height:44px;border:1px solid var(--line);border-radius:10px;padding:8px 12px;font:15px var(--body);color:var(--text);background:var(--bg);width:100%}
+.field textarea{min-height:70px;resize:vertical}
+.row2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.err{font-size:13px;color:var(--warn);min-height:0}
+.done{display:flex;flex-direction:column;gap:10px;background:var(--tint);border-radius:12px;padding:16px}
+.done h4{margin:0;font-family:var(--display);color:var(--ok);font-size:17px}
+.done pre{white-space:pre-wrap;font:13px/1.7 var(--body);background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:10px;margin:0;color:var(--text);max-height:220px;overflow:auto}
+.done .acts{display:flex;gap:8px;flex-wrap:wrap}
+.btn-sm{min-height:40px;padding:0 14px;font-size:14px;border-radius:8px}
+.btn-line{background:var(--surface);color:var(--ink);border:1px solid var(--line)}
+.note{font-size:12px;color:var(--muted)}
+
+.fleet{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.veh{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.veh .art{background:var(--tint);display:flex;justify-content:center;padding:18px}
+.veh .art svg{width:100%;max-width:360px;height:auto}
+.veh .txt{padding:16px 18px;display:flex;flex-direction:column;gap:4px}
+.veh h3{font-size:19px}
+.veh p{color:var(--muted);font-size:15px}
+@media (max-width:700px){.fleet{grid-template-columns:1fr}}
+
+.zones{display:flex;flex-wrap:wrap;gap:10px}
+.zone{background:var(--surface);border:1px solid var(--line);border-radius:30px;padding:6px 16px;font-size:14px;display:flex;align-items:center;gap:8px}
+.zone i{width:8px;height:8px;border-radius:50%;background:var(--ok);display:block}
+
+.contact{background:var(--hero);color:var(--hero-text)}
+.contact .wrap{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;padding-block:40px}
+.contact h2{color:var(--hero-text);font-size:clamp(22px,3vw,30px)}
+.contact p{color:var(--hero-soft)}
+.contact .num{font-family:var(--display);font-size:20px;direction:ltr;unicode-bidi:isolate}
+footer{font-size:13px;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-block:20px}
+
+/* svg vehicle palette */
+.v-body{fill:var(--surface);stroke:var(--ink);stroke-width:2}
+.v-glass{fill:var(--tint);stroke:var(--ink);stroke-width:1.5}
+.v-stripe{fill:var(--accent)}
+.v-deck{fill:var(--ink)}
+.v-deck-text{fill:var(--bg);font-family:var(--display);font-weight:700}
+.v-text{fill:var(--ink);font-family:var(--display);font-weight:700}
+.v-sub{fill:var(--muted);font-family:var(--body)}
+.v-wheel{fill:var(--wheel)}
+.v-hub{fill:var(--line)}
+.v-jug{fill:var(--tint);stroke:var(--accent);stroke-width:1.5}
+.v-box{fill:var(--box);stroke:var(--box-line);stroke-width:1.2}
+.v-shadow{fill:var(--line)}
+.v-lamp{fill:#E3B341}
+@media (prefers-reduced-motion:no-preference){.hero-art .truck{animation:roll 6s ease-in-out infinite}@keyframes roll{0%,100%{transform:translateX(0)}50%{transform:translateX(-10px)}}}
+</style>
+</head>
+<body>
+
+<div class="demo"><div class="wrap">نسخة تجريبية للعرض على شركة ينابيع الوادي — تصميم وتطوير تكامل</div></div>
+
+<header class="top"><div class="wrap">
+  <a class="brand" href="#top" aria-label="ينابيع الوادي، الرئيسية">
+    <svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5C9 7 5.5 10.6 5.5 14.5a6.5 6.5 0 0 0 13 0C18.5 10.6 15 7 12 2.5z" fill="var(--accent)"/><path d="M9 15a3 3 0 0 0 3 3" stroke="var(--surface)" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>
+    <span><b>ينابيع الوادي</b><small>توريد المياه للمحلات التجارية</small></span>
+  </a>
+  <nav class="links" aria-label="أقسام الموقع">
+    <a href="#how">كيف نعمل</a><a href="#products">المنتجات</a><a href="#fleet">الأسطول</a><a href="#zones">مناطق التوزيع</a><a href="#contact">تواصل معنا</a>
+  </nav>
+  <a class="btn btn-primary" href="#products">اطلب توريد</a>
+</div></header>
+
+<main id="top">
+<div class="hero"><div class="wrap">
+  <div>
+    <div class="eyebrow">مورّد المياه المعتمد لمحلات مكة المكرمة</div>
+    <h1>نملأ رفوف محلك بالمياه قبل أن تنفد</h1>
+    <p class="lead">نستورد المياه ونخزّنها في مستودعاتنا، ثم نوزّعها على البقالات والسوبرماركت والمحلات في كل أحياء مكة بالباصات والدينات. نبيع للمحلات فقط، بالكرتون والجملة.</p>
+    <div class="cta">
+      <a class="btn btn-light" href="#products">ابدأ طلب توريد</a>
+      <a class="btn btn-ghost" href="#contact">كلّم مندوب المبيعات</a>
+    </div>
+    <div class="hero-facts">
+      <div><b>بيع جملة فقط</b>للبقالات والمحلات</div>
+      <div><b>مستودعات في مكة</b>مخزون جاهز دائمًا</div>
+      <div><b>توصيل حتى المحل</b>باصات ودينات</div>
+    </div>
+  </div>
+  <div class="hero-art" aria-hidden="true">
+    <svg viewBox="0 0 300 150"><g class="truck">
+      <ellipse class="v-shadow" cx="150" cy="136" rx="135" ry="6" style="fill:var(--hero)"/>
+      <path class="v-body" d="M16 114 L16 64 Q16 40 38 38 L86 38 L86 114 Z"/>
+      <path class="v-glass" d="M26 64 L33 48 L78 48 L78 64 Z"/>
+      <rect class="v-lamp" x="10" y="98" width="12" height="8" rx="2"/>
+      <rect class="v-deck" x="90" y="86" width="196" height="26" rx="3" style="fill:var(--accent)"/>
+      <text class="v-deck-text" x="188" y="104" text-anchor="middle" font-size="12" style="fill:var(--accent-ink)">ينابيع الوادي</text>
+      <g class="v-jug"><rect x="96" y="52" width="24" height="33" rx="6"/><rect x="103" y="46" width="10" height="7" rx="2"/><rect x="124" y="52" width="24" height="33" rx="6"/><rect x="131" y="46" width="10" height="7" rx="2"/><rect x="152" y="52" width="24" height="33" rx="6"/><rect x="159" y="46" width="10" height="7" rx="2"/><rect x="110" y="20" width="24" height="31" rx="6"/><rect x="117" y="14" width="10" height="7" rx="2"/><rect x="138" y="20" width="24" height="31" rx="6"/><rect x="145" y="14" width="10" height="7" rx="2"/></g>
+      <g class="v-box"><rect x="184" y="62" width="30" height="23"/><rect x="216" y="62" width="30" height="23"/><rect x="248" y="62" width="30" height="23"/><rect x="200" y="38" width="30" height="23"/><rect x="232" y="38" width="30" height="23"/></g>
+      <rect x="14" y="110" width="274" height="7" style="fill:var(--wheel)"/>
+      <circle class="v-wheel" cx="56" cy="120" r="16"/><circle class="v-hub" cx="56" cy="120" r="6"/>
+      <circle class="v-wheel" cx="236" cy="120" r="16"/><circle class="v-hub" cx="236" cy="120" r="6"/>
+    </g></svg>
+  </div>
+</div></div>
+
+<section id="how"><div class="wrap">
+  <div class="sec-head"><h2>كيف يصلك التوريد</h2><p>أربع خطوات من طلبك حتى تنزيل الكراتين في مستودع المحل.</p></div>
+  <div class="steps">
+    <div class="step"><span class="n">1</span><h3>اختر الكميات</h3><p>حدّد عدد الكراتين أو الجوالين من كل صنف.</p></div>
+    <div class="step"><span class="n">2</span><h3>أرسل بيانات المحل</h3><p>اسم المحل والحي ورقم المسؤول ووقت الاستلام.</p></div>
+    <div class="step"><span class="n">3</span><h3>تأكيد من المبيعات</h3><p>يتواصل معك مندوبنا لتأكيد الطلب وموعد التوصيل.</p></div>
+    <div class="step"><span class="n">4</span><h3>التوصيل للمحل</h3><p>يصل الباص أو الدينا حسب حجم الطلب وتُنزَّل البضاعة.</p></div>
+  </div>
+</div></section>
+
+<section id="products" style="padding-top:0"><div class="wrap">
+  <div class="sec-head"><h2>المنتجات وطلب التوريد</h2><p>الكميات محسوبة بالكرتون للمحلات. أضفنا طلبًا تجريبيًا لتوضيح طريقة العمل، وتستطيع تعديله.</p></div>
+  <div class="shop">
+    <div class="catalog" id="catalog"></div>
+    <aside class="order" aria-labelledby="ordt">
+      <h3 id="ordt">طلب التوريد</h3>
+      <div class="lines" id="lines"></div>
+      <div class="total"><span>إجمالي الوحدات</span><b id="total">0</b></div>
+      <form class="f" id="f" novalidate>
+        <div class="field"><label for="shop">اسم المحل</label><input id="shop" placeholder="مثال: بقالة الهدى" autocomplete="organization"></div>
+        <div class="row2">
+          <div class="field"><label for="person">اسم المسؤول</label><input id="person" autocomplete="name"></div>
+          <div class="field"><label for="phone">رقم الجوال</label><input id="phone" inputmode="tel" placeholder="05xxxxxxxx" dir="ltr" autocomplete="tel"></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="hood">الحي</label><select id="hood"></select></div>
+          <div class="field"><label for="slot">وقت الاستلام</label><select id="slot"><option>صباحًا</option><option>بعد العصر</option><option>مساءً</option></select></div>
+        </div>
+        <div class="field"><label for="notes">ملاحظات للمندوب</label><textarea id="notes" placeholder="مثال: التنزيل من الباب الخلفي"></textarea></div>
+        <p class="err" id="err" role="alert" hidden></p>
+        <button class="btn btn-primary" type="submit">إرسال طلب التوريد</button>
+        <p class="note">في النسخة النهائية يصل الطلب مباشرة إلى واتساب قسم المبيعات.</p>
+      </form>
+      <div class="done" id="done" hidden>
+        <h4 id="doneT">تم تجهيز طلبك</h4>
+        <p class="note">هذه رسالة الطلب كما ستصل لقسم المبيعات:</p>
+        <pre id="msg"></pre>
+        <div class="acts">
+          <button class="btn btn-primary btn-sm" type="button" id="copy">نسخ الرسالة</button>
+          <button class="btn btn-line btn-sm" type="button" id="again">طلب جديد</button>
+        </div>
+      </div>
+    </aside>
+  </div>
+</div></section>
+
+<section id="fleet" style="background:var(--surface);border-block:1px solid var(--line)"><div class="wrap">
+  <div class="sec-head"><h2>أسطول التوزيع</h2><p>نختار المركبة حسب حجم طلبك، من توريد أسبوعي لبقالة صغيرة إلى حمولة كاملة لسوبرماركت.</p></div>
+  <div class="fleet">
+    <div class="veh">
+      <div class="art"><svg viewBox="0 0 300 150" role="img" aria-label="باص توصيل صغير">
+        <ellipse class="v-shadow" cx="150" cy="136" rx="135" ry="6"/>
+        <path class="v-body" d="M20 118 L20 72 L46 36 Q50 30 60 30 L264 30 Q272 30 272 38 L272 118 Z"/>
+        <path class="v-glass" d="M28 72 L52 40 L84 40 L84 72 Z"/>
+        <rect class="v-glass" x="94" y="40" width="44" height="26" rx="3"/>
+        <line x1="90" y1="34" x2="90" y2="114" style="stroke:var(--ink)" stroke-width="1.2"/>
+        <rect class="v-stripe" x="20" y="94" width="252" height="10"/>
+        <path class="v-stripe" d="M176 42 C171 50 165 55 165 61 a11 11 0 0 0 22 0 C187 55 181 50 176 42 z"/>
+        <text class="v-text" x="226" y="66" text-anchor="middle" font-size="15">ينابيع الوادي</text>
+        <text class="v-sub" x="226" y="84" text-anchor="middle" font-size="9">توريد المحلات</text>
+        <rect class="v-lamp" x="14" y="104" width="12" height="8" rx="2"/>
+        <circle class="v-wheel" cx="72" cy="120" r="17"/><circle class="v-hub" cx="72" cy="120" r="7"/>
+        <circle class="v-wheel" cx="226" cy="120" r="17"/><circle class="v-hub" cx="226" cy="120" r="7"/>
+      </svg></div>
+      <div class="txt"><h3>باصات التوصيل</h3><p>للطلبات المتوسطة والتوريد الدوري للبقالات داخل الأحياء والشوارع الضيقة.</p></div>
+    </div>
+    <div class="veh">
+      <div class="art"><svg viewBox="0 0 300 150" role="img" aria-label="دينا محمّلة بالجوالين والكراتين">
+        <ellipse class="v-shadow" cx="150" cy="136" rx="135" ry="6"/>
+        <path class="v-body" d="M16 114 L16 64 Q16 40 38 38 L86 38 L86 114 Z"/>
+        <path class="v-glass" d="M26 64 L33 48 L78 48 L78 64 Z"/>
+        <rect class="v-lamp" x="10" y="98" width="12" height="8" rx="2"/>
+        <rect class="v-deck" x="90" y="86" width="196" height="26" rx="3"/>
+        <text class="v-deck-text" x="188" y="104" text-anchor="middle" font-size="12">ينابيع الوادي</text>
+        <g class="v-jug"><rect x="96" y="52" width="24" height="33" rx="6"/><rect x="103" y="46" width="10" height="7" rx="2"/><rect x="124" y="52" width="24" height="33" rx="6"/><rect x="131" y="46" width="10" height="7" rx="2"/><rect x="152" y="52" width="24" height="33" rx="6"/><rect x="159" y="46" width="10" height="7" rx="2"/><rect x="110" y="20" width="24" height="31" rx="6"/><rect x="117" y="14" width="10" height="7" rx="2"/><rect x="138" y="20" width="24" height="31" rx="6"/><rect x="145" y="14" width="10" height="7" rx="2"/></g>
+        <g class="v-box"><rect x="184" y="62" width="30" height="23"/><rect x="216" y="62" width="30" height="23"/><rect x="248" y="62" width="30" height="23"/><rect x="200" y="38" width="30" height="23"/><rect x="232" y="38" width="30" height="23"/></g>
+        <rect x="14" y="110" width="274" height="7" style="fill:var(--wheel)"/>
+        <circle class="v-wheel" cx="56" cy="120" r="16"/><circle class="v-hub" cx="56" cy="120" r="6"/>
+        <circle class="v-wheel" cx="236" cy="120" r="16"/><circle class="v-hub" cx="236" cy="120" r="6"/>
+      </svg></div>
+      <div class="txt"><h3>دينات التوريد</h3><p>للحمولات الكبيرة من الجوالين والكراتين للسوبرماركت والمحلات الكبرى.</p></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="zones"><div class="wrap">
+  <div class="sec-head"><h2>مناطق التوزيع</h2><p>نغطي أحياء مكة المكرمة كاملة. هذه أمثلة من الأحياء التي نخدمها يوميًا.</p></div>
+  <div class="zones" id="zonesList"></div>
+</div></section>
+</main>
+
+<div class="contact" id="contact"><div class="wrap">
+  <div>
+    <h2>تريد فتح حساب توريد لمحلك؟</h2>
+    <p>كلّم قسم المبيعات ويتواصل معك مندوب منطقتك.</p>
+  </div>
+  <div>
+    <div class="num">[رقم الشركة]</div>
+    <p>واتساب واتصال · من السبت إلى الخميس</p>
+  </div>
+</div></div>
+
+<footer><div class="wrap"><span>© 2026 ينابيع الوادي · مكة المكرمة</span><span>تصميم وتطوير: تكامل</span></div></footer>
+
+<script>
+const products=[
+  {id:"p200",name:"مياه 200 مل",pack:"كرتون 48 عبوة",unit:"كرتون",h:54,tag:"للمساجد والمناسبات"},
+  {id:"p330",name:"مياه 330 مل",pack:"كرتون 40 عبوة",unit:"كرتون",h:64,tag:"الأكثر طلبًا",q:10},
+  {id:"p600",name:"مياه 600 مل",pack:"كرتون 24 عبوة",unit:"كرتون",h:76,q:6},
+  {id:"p15",name:"مياه 1.5 لتر",pack:"كرتون 12 عبوة",unit:"كرتون",h:88},
+  {id:"g5l",name:"جالون 5 لتر",pack:"كرتون 4 جوالين",unit:"كرتون",h:96},
+  {id:"g5g",name:"جالون 5 جالون",pack:"قابل للاسترجاع والتبديل",unit:"جالون",h:100,big:true}
+];
+const hoods=["العزيزية","الشوقية","النوارية","العوالي","الزاهر","الشرائع","الكعكية","الرصيفة","بطحاء قريش","العتيبية","الهجرة","النسيم"];
+const qty={};products.forEach(p=>qty[p.id]=p.q||0);
+const $=id=>document.getElementById(id);
+
+function bottle(p){
+  if(p.big) return `<svg width="70" height="110" viewBox="0 0 70 110" aria-hidden="true"><rect x="26" y="4" width="18" height="12" rx="3" style="fill:var(--accent)"/><rect x="8" y="16" width="54" height="90" rx="16" class="v-jug"/><rect x="16" y="50" width="38" height="24" rx="4" style="fill:var(--accent)"/></svg>`;
+  return `<svg width="60" height="${p.h+10}" viewBox="0 0 60 100" preserveAspectRatio="xMidYMax meet" aria-hidden="true"><path d="M22 18 h16 v-8 h-3 v-8 h-10 v8 h-3 z" style="fill:var(--accent)"/><rect x="12" y="18" width="36" height="80" rx="9" class="v-jug"/><rect x="18" y="44" width="24" height="24" rx="3" style="fill:var(--accent)"/></svg>`;
+}
+$("catalog").innerHTML=products.map(p=>`
+  <article class="prod">
+    <div class="pic">${bottle(p)}</div>
+    <div class="info">
+      ${p.tag?`<span class="tag">${p.tag}</span>`:""}
+      <h3>${p.name}</h3>
+      <div class="pack">${p.pack}</div>
+      <div class="qty"><span class="lbl">الكمية (${p.unit})</span>
+        <div class="stepper">
+          <button type="button" data-d="1" data-id="${p.id}" aria-label="زيادة ${p.name}">+</button>
+          <input id="q-${p.id}" type="number" min="0" inputmode="numeric" value="${qty[p.id]}" aria-label="كمية ${p.name}">
+          <button type="button" data-d="-1" data-id="${p.id}" aria-label="إنقاص ${p.name}">−</button>
+        </div>
+      </div>
+    </div>
+  </article>`).join("");
+$("hood").innerHTML=hoods.map(h=>`<option>${h}</option>`).join("");
+$("zonesList").innerHTML=hoods.map(h=>`<span class="zone"><i aria-hidden="true"></i>${h}</span>`).join("");
+
+$("catalog").addEventListener("click",e=>{
+  const b=e.target.closest("button[data-id]");if(!b)return;
+  const id=b.dataset.id;qty[id]=Math.max(0,(qty[id]||0)+Number(b.dataset.d));
+  $("q-"+id).value=qty[id];render();
+});
+$("catalog").addEventListener("input",e=>{
+  if(!e.target.id.startsWith("q-"))return;
+  const v=parseInt(e.target.value,10);qty[e.target.id.slice(2)]=isNaN(v)||v<0?0:v;render();
+});
+function chosen(){return products.filter(p=>qty[p.id]>0)}
+function render(){
+  const c=chosen();
+  $("lines").innerHTML=c.length?c.map(p=>`<div class="line"><span>${p.name} · ${p.pack}</span><span>${qty[p.id]} ${p.unit}</span></div>`).join("")
+    :`<div class="empty">لم تختر أي صنف بعد. استخدم زر + بجانب المنتج لإضافة الكمية.</div>`;
+  $("total").textContent=c.reduce((s,p)=>s+qty[p.id],0);
+}
+render();
+
+$("f").addEventListener("submit",e=>{
+  e.preventDefault();
+  const err=$("err"),shop=$("shop").value.trim(),phone=$("phone").value.trim();
+  let m="";
+  if(!chosen().length)m="أضف كمية لصنف واحد على الأقل.";
+  else if(!shop)m="اكتب اسم المحل حتى يعرف المندوب لمن الطلب.";
+  else if(!/^05\d{8}$/.test(phone.replace(/\s/g,"")))m="اكتب رقم جوال سعودي من 10 أرقام يبدأ بـ 05.";
+  if(m){err.textContent=m;err.hidden=false;return}
+  err.hidden=true;
+  const no="YW-"+Math.floor(1000+Math.random()*9000);
+  const txt=[`طلب توريد ${no}`,`المحل: ${shop}`,`المسؤول: ${$("person").value.trim()||"—"}`,`الجوال: ${phone}`,`الحي: ${$("hood").value} · ${$("slot").value}`,"",...chosen().map(p=>`- ${p.name} (${p.pack}): ${qty[p.id]} ${p.unit}`),"",$("notes").value.trim()?`ملاحظات: ${$("notes").value.trim()}`:""].filter((l,i,a)=>!(l===""&&i===a.length-1)).join("\n");
+  $("msg").textContent=txt;$("doneT").textContent=`تم تجهيز طلبك رقم ${no}`;
+  $("f").hidden=true;$("done").hidden=false;
+});
+$("copy").addEventListener("click",async()=>{
+  const b=$("copy");
+  try{await navigator.clipboard.writeText($("msg").textContent);b.textContent="تم النسخ"}
+  catch(_){const r=document.createRange();r.selectNodeContents($("msg"));const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent="حدّد النص وانسخه"}
+  setTimeout(()=>b.textContent="نسخ الرسالة",2000);
+});
+$("again").addEventListener("click",()=>{
+  products.forEach(p=>{qty[p.id]=0;$("q-"+p.id).value=0});render();
+  $("f").reset();$("done").hidden=true;$("f").hidden=false;$("shop").focus();
+});
+</script>
+</body>
+</html>
